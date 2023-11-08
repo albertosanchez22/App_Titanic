@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  
+</head>
+
+<body>
+ <div class="login">
+	<form action="{{ url_for('predict')}}"method="post">
+    <input type="text" />
+      <input type="text"  />
+  <input type="text"/>
+      <button type="submit" >Tendré suerte?</button>
+  </form>
+
+  
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
