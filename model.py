@@ -4,10 +4,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import AdaBoostClassifier, BaggingClassifier
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier
+import pickle
 
 
-titanic_training = pd.read_csv(r"C:\Users\BigData\Desktop\CursoBigData\csvTitanic\train.csv")
-titanic_test = pd.read_csv(r"C:\Users\BigData\Desktop\CursoBigData\csvTitanic\test.csv")
+titanic_training = pd.read_csv("./train.csv")
+titanic_test = pd.read_csv("./test.csv")
 titanic_sinNan = titanic_training.dropna()
 
 SEED = 42
@@ -52,5 +53,7 @@ for clf_name, clf in classifiers:
 vc = VotingClassifier(estimators=classifiers)
 vc.fit(X_train, y_train)
 print("Voting Classifier: {:.3f}" .format(vc.score(X_test, y_test)))
+
+pickle.dump(vc, open('model.pkl','wb'))
 
 
