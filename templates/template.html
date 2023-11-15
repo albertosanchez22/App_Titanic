@@ -1,26 +1,89 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Deployment Tutorial 1</title>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Tutorial 1</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        br {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .prediction {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
- <div class="login">
-	<form action="{{ url_for('predict')}}"method="post">
-    <input type="text" />
-      <input type="text"  />
-  <input type="text"/>
-      <button type="submit" >Tendré suerte?</button>
-  </form>
+    <div class="login">
+        <form action="{{ url_for('predict') }}" method="post">
+          <input type="text" name="PassengerId" placeholder="PassengerId" />
+          <input type="text" name="Pclass" placeholder="Pclass" />
+          <input type="text" name="Age" placeholder="Age" />
+          <input type="text" name="SibSp" placeholder="SibSp" />
+          <input type="text" name="Parch" placeholder="Parch" />
+          <input type="text" name="Fare" placeholder="Fare" />
+          <input type="text" name="C" placeholder="C" />
+          <input type="text" name="Q" placeholder="Q" />
+          <input type="text" name="S" placeholder="S" />
+          <input type="text" name="male" placeholder="male" />
+          <input type="text" name="female" placeholder="female" />
+            <button type="submit">¡Tendré suerte?</button>
+        </form>
 
-  
+        <br>
 
-   <br>
-   <br>
-   {{ prediction_text }}
-
- </div>
+        <div class="prediction">
+            {{ prediction_text }}
+        </div>
+    </div>
 </body>
 </html>
